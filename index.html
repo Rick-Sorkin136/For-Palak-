@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Palak — A Little Place for Us</title>
+<meta name="description" content="A little digital love letter for Palak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf7f3;--ink:#2d2523;--muted:#766966;--rose:#b96f78;--rose2:#e9c4c7;--cream:#fffaf7;--line:#eaded9}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",serif}
+button{font:inherit}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}.petal{position:absolute;top:-30px;width:9px;height:13px;background:#e7b8bd;border-radius:80% 20% 80% 20%;opacity:.55;animation:fall linear forwards}
+@keyframes fall{to{transform:translate3d(var(--x),110vh,0) rotate(540deg);opacity:0}}
+.hero{min-height:100svh;display:grid;place-items:center;position:relative;padding:40px 20px;background:radial-gradient(circle at 50% 35%,#fff9f5 0,#fbf7f3 48%,#f5eae5 100%)}
+.hero:after{content:"";position:absolute;width:500px;height:500px;border:1px solid #e6d4cf;border-radius:50%;opacity:.55}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:760px}.eyebrow{letter-spacing:.28em;text-transform:uppercase;font-size:11px;color:var(--rose);margin-bottom:22px}
+.hero h1{font-size:clamp(68px,15vw,150px);line-height:.72;margin:0 0 30px;font-weight:500}.hero h1 span{display:block;font-size:.33em;letter-spacing:.08em;margin-top:32px;font-family:"DM Sans",sans-serif;text-transform:uppercase;color:var(--muted)}
+.hero p{font-family:"Cormorant Garamond",serif;font-size:clamp(22px,4vw,31px);line-height:1.35;margin:0 auto 38px;max-width:600px}
+.enter{border:1px solid #cda3a8;background:transparent;color:var(--ink);border-radius:999px;padding:13px 25px;cursor:pointer;transition:.3s}.enter:hover{background:var(--ink);color:#fff}
+.scroll{position:absolute;bottom:24px;z-index:2;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+section{padding:110px 22px}.wrap{max-width:980px;margin:auto}.center{text-align:center}.kicker{color:var(--rose);font-size:11px;letter-spacing:.22em;text-transform:uppercase}.title{font-size:clamp(42px,7vw,68px);font-weight:500;margin:12px 0 20px;line-height:.95}.lead{max-width:650px;margin:0 auto;color:var(--muted);line-height:1.8}
+.story{background:var(--cream)}.timeline{position:relative;max-width:720px;margin:65px auto 0}.timeline:before{content:"";position:absolute;left:13px;top:0;bottom:0;width:1px;background:var(--line)}.event{position:relative;padding:0 0 58px 52px}.dot{position:absolute;left:8px;top:5px;width:12px;height:12px;border:2px solid var(--rose);background:var(--cream);border-radius:50%}.event .date{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--rose)}.event h3{font-size:31px;margin:7px 0}.event p{color:var(--muted);line-height:1.75;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:55px}.card{background:#fff;border:1px solid var(--line);padding:30px 25px;min-height:190px;transition:.35s}.card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #4d30200e}.card .num{font-size:12px;color:var(--rose)}.card h3{font-size:29px;margin:22px 0 10px}.card p{color:var(--muted);line-height:1.7;font-size:14px}
+.quote{background:#302726;color:#fdf7f4;text-align:center;min-height:500px;display:grid;place-items:center}.quote blockquote{font-family:"Cormorant Garamond",serif;font-size:clamp(36px,7vw,68px);line-height:1.03;max-width:800px;margin:20px auto}.quote cite{font-style:normal;color:#dcbfc0;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.surprise{background:#f3e6e2}.secretbox{max-width:680px;margin:45px auto 0;text-align:center}.reveal{border:1px solid #cda3a8;background:var(--cream);padding:17px 25px;border-radius:999px;cursor:pointer;color:var(--ink)}.hidden-message{max-height:0;overflow:hidden;transition:max-height 1s ease}.hidden-message.open{max-height:500px}.hidden-message p{font-family:"Cormorant Garamond",serif;font-size:32px;line-height:1.35;padding:30px 10px 0;margin:0}
+.photos{background:#fff}.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:50px}.photo{aspect-ratio:1/1;background:linear-gradient(135deg,#f3e3df,#e8c7ca);display:grid;place-items:center;text-align:center;padding:20px;color:#755f5b;font-family:"Cormorant Garamond",serif;font-size:23px;position:relative;overflow:hidden}.photo:nth-child(2){transform:translateY(28px)}.photo:nth-child(3){transform:translateY(8px)}
+.real-photo{padding:0;display:block;background:#f1e5e1;border:none}
+.real-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+.real-photo:hover img{transform:scale(1.035)}
+.real-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:45px 18px 16px;color:#fff;text-align:left;font-family:"Cormorant Garamond",serif;font-size:24px;background:linear-gradient(transparent,#000000a8)}
+.real-photo figcaption span{display:block;font-family:"DM Sans",sans-serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;margin-top:5px}
+.photo span{font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:8px;display:block}
+.letter{background:var(--bg)}.paper{max-width:760px;margin:45px auto 0;background:#fffdfb;border:1px solid var(--line);padding:clamp(30px,7vw,75px);box-shadow:0 22px 60px #4d30200c}.paper p{font-family:"Cormorant Garamond",serif;font-size:clamp(23px,3vw,29px);line-height:1.5;margin:0 0 20px}.signature{text-align:right;margin-top:38px!important;font-size:32px!important}
+.final{min-height:100svh;background:radial-gradient(circle at 50% 40%,#fff7f3,#eedcda);display:grid;place-items:center;text-align:center;padding:30px}.final h2{font-size:clamp(65px,13vw,130px);line-height:.75;font-weight:500;margin:20px 0 35px}.final p{font-family:"Cormorant Garamond",serif;font-size:28px;max-width:650px;margin:auto;line-height:1.35}.heart{font-size:28px;margin-top:35px;animation:pulse 1.7s infinite}@keyframes pulse{50%{transform:scale(1.18)}}
+.music-note{position:fixed;right:18px;bottom:18px;z-index:10;border:1px solid #d5b9b7;background:#fffaf7;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 20px #0000000d}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}.fade.show{opacity:1;transform:none}
+@media(max-width:700px){section{padding:82px 18px}.cards,.photo-grid{grid-template-columns:1fr}.photo:nth-child(2),.photo:nth-child(3){transform:none}.cards .card{min-height:auto}.hero:after{width:320px;height:320px}}
+</style>
+</head>
+<body>
+<div id="petals"></div>
+<button class="music-note" id="musicBtn" aria-label="Music">♪</button>
+<audio id="music" loop preload="none"><source src="music/you-and-i.mp3" type="audio/mpeg"></audio>
+
+<header class="hero" id="top">
+  <div class="hero-inner fade">
+    <div class="eyebrow">A little place on the internet</div>
+    <h1>Palak<span>for my boo boo</span></h1>
+    <p>There are some things that feel too special to fit inside an ordinary message.</p>
+    <button class="enter" onclick="document.querySelector('#story').scrollIntoView()">Come in, bub&nbsp; ♡</button>
+  </div>
+  <div class="scroll">scroll slowly ↓</div>
+</header>
+
+<section class="story" id="story">
+<div class="wrap">
+  <div class="center fade"><div class="kicker">How it began</div><h2 class="title">Funny how a book site<br>gave me you.</h2><p class="lead">I found you on Bookmark. And my first thought was honestly… “She's a little standoffish.” Your replies felt curt enough that I convinced myself you probably weren't interested.</p></div>
+  <div class="timeline">
+    <div class="event fade"><i class="dot"></i><div class="date">The beginning</div><h3>One conversation at a time</h3><p>Somewhere between the messages, the teasing and getting to know each other, the person I thought was distant started becoming someone I couldn't wait to hear from.</p></div>
+    <div class="event fade"><i class="dot"></i><div class="date">7 August 2026</div><h3>Us, officially.</h3><p>The date that quietly became one of my favourite dates. We decided to take this seriously—with the hope that this little “us” gets to become a forever.</p></div>
+    <div class="event fade"><i class="dot"></i><div class="date">The nights</div><h3>Chess, Scribble & us</h3><p>Late-night virtual dates, terrible distractions, games, laughter, and conversations that somehow become ridiculously lovey-dovey. I wouldn't trade those nights for anything.</p></div>
+    <div class="event fade"><i class="dot"></i><div class="date">December 2026</div><h3>The first real date.</h3><p>We've already shared so much from a distance. Now there's a December waiting for us—and I genuinely can't wait to finally meet you.</p></div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap center">
+  <div class="kicker">Things I notice about you</div>
+  <h2 class="title">The little things<br>aren't little to me.</h2>
+  <div class="cards">
+    <article class="card fade"><div class="num">01</div><h3>Kindness</h3><p>The way you make space for me, understand me, and care without making a big announcement about it.</p></article>
+    <article class="card fade"><div class="num">02</div><h3>Reciprocation</h3><p>I spent a long time feeling like I was giving more than I received. Then you came along and somehow exceeded every expectation.</p></article>
+    <article class="card fade"><div class="num">03</div><h3>Choosing us</h3><p>You are willing to make time for me, and that simple act means more than I think I can properly explain.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="quote">
+<div class="wrap fade">
+  <div class="kicker">A tiny confession</div>
+  <blockquote>“I can't believe I am this much comfortable with you that I'm saying I will bite you hard on your lips.”</blockquote>
+  <cite>— Palak, who apparently became very comfortable very quickly 😂</cite>
+</div>
+</section>
+
+<section class="surprise">
+<div class="wrap center">
+  <div class="kicker">For when you tease me back</div>
+  <h2 class="title">Okay, USP.<br>I have something to say.</h2>
+  <div class="secretbox">
+    <button class="reveal" onclick="reveal()">Don't click this unless you're ready ♡</button>
+    <div class="hidden-message" id="secret"><p>“Bohot jyada muh nahi chalane lage ho tum aajkal” — yes, I know. But in my defence, teasing you has become one of my favourite hobbies. 😌</p></div>
+  </div>
+</div>
+</section>
+
+<section class="photos">
+<div class="wrap center">
+  <div class="kicker">A space for memories</div>
+  <h2 class="title">A few frames of you.</h2>
+  <p class="lead">Replace these with your favourite pictures of Palak. I left the layout ready so the memories can become part of the story.</p>
+  <div class="photo-grid">
+    <figure class="photo real-photo"><img src="palak-01.jpg" alt="Palak smiling in a black and red floral outfit"><figcaption>That smile I could get used to.<span>♡ favourite Palak</span></figcaption></figure>
+    <figure class="photo real-photo"><img src="palak-02.jpg" alt="Palak in a black graphic t-shirt"><figcaption>My adorable little bub.<span>♡ effortlessly you</span></figcaption></figure>
+    <figure class="photo real-photo"><img src="palak-03.jpg" alt="Palak smiling in warm red light"><figcaption>Even the dramatic lighting suits you.<span>♡ my favourite view</span></figcaption></figure>
+    <figure class="photo real-photo"><img src="palak-04.jpg" alt="Palak smiling in a black graphic t-shirt"><figcaption>That soft little smile.<span>♡ USP</span></figcaption></figure>
+    <figure class="photo real-photo"><img src="palak-05.jpg" alt="Palak posing in a floral dress and denim jacket"><figcaption>December can't come soon enough.<span>♡ waiting for our first date</span></figcaption></figure>
+  </div>
+</div>
+</section>
+
+<section class="letter">
+<div class="wrap">
+  <div class="center fade"><div class="kicker">A letter for you</div><h2 class="title">Dear Palak,</h2></div>
+  <div class="paper fade">
+    <p>I don't know if there is a perfect way to put this into words, but I adore you a lot, boo boo.</p>
+    <p>You are a miracle that walked into my life at a time when I had almost forgotten what it feels like to have something be genuinely reciprocal. With you, I don't have to wonder whether I matter. I feel it.</p>
+    <p>I love how kind you are. How understanding and mature you can be. How you accommodate for me, and how you're willing to make time simply because spending it together matters to you.</p>
+    <p>And then there are our nights—chess, Scribble, random teasing, and those conversations where we forget the rest of the world exists. Somewhere in all of that, you've become someone I look forward to. Someone I want beside me.</p>
+    <p>I like you so much, my dear Palak. More than I probably manage to say properly.</p>
+    <p>So here's to 7 August, to all the nights between now and December, to finally meeting you, and—if we keep choosing each other the way we are now—to everything that comes after.</p>
+    <p class="signature">Always your boo boo,<br>❤️</p>
+  </div>
+</div>
+</section>
+
+<section class="final">
+<div class="fade">
+  <div class="kicker">And one last thing</div>
+  <h2>Palak,<br>it's you.</h2>
+  <p>I don't know exactly what every chapter ahead looks like. But I know who I want to keep turning the pages with.</p>
+  <div class="heart">♡</div>
+  <div style="margin-top:28px;color:#766966;font-size:11px;letter-spacing:.18em;text-transform:uppercase">7 August 2026 · hopefully, forever</div>
+</div>
+</section>
+
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+function reveal(){document.getElementById('secret').classList.toggle('open'); petals(16)}
+function petals(n=8){for(let i=0;i<n;i++){const p=document.createElement('i');p.className='petal';p.style.left=Math.random()*100+'vw';p.style.setProperty('--x',(Math.random()*220-110)+'px');p.style.animationDuration=(4+Math.random()*4)+'s';p.style.animationDelay=(Math.random()*1)+'s';document.getElementById('petals').appendChild(p);setTimeout(()=>p.remove(),9000)}}
+setTimeout(()=>petals(12),700);
+const music=document.getElementById('music'),btn=document.getElementById('musicBtn');
+btn.addEventListener('click',async()=>{if(music.paused){try{await music.play();btn.textContent='Ⅱ'}catch(e){alert('Add music/you-and-i.mp3 to enable the song.')}}else{music.pause();btn.textContent='♪'}});
+</script>
+</body>
+</html>
