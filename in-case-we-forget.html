@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In Case We Forget — For Palak</title>
+<meta name="theme-color" content="#f7eee9">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#3e3030;
+    --muted:#796767;
+    --rose:#a96868;
+    --cream:#fbf6f2;
+    --paper:rgba(255,255,255,.78);
+    --line:rgba(112,79,79,.14);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 10%, rgba(211,164,164,.22), transparent 30%),
+      radial-gradient(circle at 90% 25%, rgba(231,204,184,.25), transparent 28%),
+      linear-gradient(135deg,#fdf9f5,#f6ece8);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+  }
+  body:before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; opacity:.25;
+    background-image:radial-gradient(rgba(90,60,60,.16) .6px,transparent .6px);
+    background-size:8px 8px;
+    mask-image:linear-gradient(to bottom,black,transparent 80%);
+  }
+  .wrap{max-width:860px;margin:auto;padding:24px 20px 70px}
+  .hero{min-height:92vh;display:grid;place-items:center;text-align:center;padding:55px 0}
+  .eyebrow{
+    letter-spacing:.22em;text-transform:uppercase;font-size:11px;
+    color:var(--rose);font-weight:600;margin-bottom:22px
+  }
+  h1,h2,.serif{font-family:"Cormorant Garamond",serif}
+  h1{font-size:clamp(56px,12vw,108px);line-height:.84;font-weight:500;margin:0 0 26px}
+  .hero p{max-width:590px;margin:0 auto;color:var(--muted);font-size:16px;line-height:1.8}
+  .date{margin-top:25px;font-size:12px;letter-spacing:.12em;color:#977b7b}
+  .heart{font-size:28px;margin-top:30px;animation:pulse 2.2s infinite}
+  @keyframes pulse{50%{transform:scale(1.12)}}
+
+  section{margin:24px 0}
+  .card{
+    background:var(--paper);backdrop-filter:blur(12px);
+    border:1px solid var(--line);border-radius:30px;
+    padding:clamp(28px,6vw,56px);
+    box-shadow:0 18px 60px rgba(83,53,53,.07);
+  }
+  h2{font-size:clamp(36px,7vw,58px);font-weight:500;line-height:1;margin:0 0 18px}
+  .lead{font-family:"Cormorant Garamond",serif;font-size:28px;line-height:1.25}
+  p{line-height:1.85;color:var(--muted);font-size:15px}
+  .center{text-align:center}
+
+  .memory{
+    margin:24px 0 0;padding:22px;border-radius:22px;
+    background:rgba(255,255,255,.55);border:1px solid var(--line)
+  }
+  .memory strong{display:block;font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:600;margin-bottom:7px}
+
+  .photo{
+    width:100%;max-height:480px;object-fit:cover;border-radius:24px;
+    display:block;margin:26px 0 8px;
+    filter:saturate(.9);
+  }
+  .caption{text-align:center;font-size:12px;color:#987f7f}
+
+  .reveal-area{text-align:center;padding:18px 0 4px}
+  button{
+    border:0;cursor:pointer;font:600 13px "DM Sans",sans-serif;
+    color:white;background:#8f5c5c;padding:15px 22px;border-radius:999px;
+    box-shadow:0 10px 25px rgba(108,67,67,.18);
+    transition:transform .2s, box-shadow .2s;
+  }
+  button:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(108,67,67,.22)}
+  .reveal{display:none;margin:22px auto 0;max-width:610px}
+  .reveal.show{display:block;animation:appear .6s ease}
+  @keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  .rules{display:grid;gap:12px;margin-top:22px}
+  .rule{display:flex;gap:13px;align-items:flex-start}
+  .dot{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#f0dfda;color:#875858;font-size:13px}
+
+  .promise{
+    margin-top:28px;padding:30px;border-radius:24px;
+    background:linear-gradient(135deg,rgba(243,225,220,.72),rgba(255,255,255,.58));
+    text-align:center
+  }
+  .promise p{margin:8px 0}
+  .big{font-family:"Cormorant Garamond",serif;font-size:38px;line-height:1.1}
+
+  .emergency{margin-top:28px;text-align:center}
+  .emergency small{display:block;color:#9a8181;margin-top:12px;line-height:1.5}
+
+  footer{text-align:center;padding:45px 10px 10px;color:#9a8181;font-size:12px;line-height:1.7}
+  footer span{font-family:"Cormorant Garamond",serif;font-size:22px;color:#755656}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">For the days when we forget</div>
+      <h1>In Case<br>We Forget.</h1>
+      <p>
+        Hey boo boo.<br>
+        If you're here, maybe we're annoyed with each other.
+        Maybe one of us said something stupid. Maybe we're both convinced we're right.
+      </p>
+      <div class="date">Made for us · 7 August 2026</div>
+      <div class="heart">♡</div>
+    </div>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>Before anything else…</h2>
+      <div class="lead">
+        I want you to remember that the person you're fighting with
+        is the same person who loves having you in his life.
+      </div>
+
+      <div class="memory">
+        <strong>We started with a little misunderstanding.</strong>
+        <p>
+          We met on Bookmark. You seemed so standoffish that I genuinely
+          thought you weren't interested. And somehow, that person became
+          my boo boo.
+        </p>
+      </div>
+
+      <div class="memory">
+        <strong>Then came 7 August 2026.</strong>
+        <p>
+          The day this stopped being just two people talking and became
+          something we wanted to take seriously.
+        </p>
+      </div>
+
+      <div class="memory">
+        <strong>Then came all those little nights.</strong>
+        <p>
+          Chess. Scribble. Ridiculous conversations. Late nights.
+          Lovey-dovey things. Making time for each other.
+          All the tiny moments that quietly became ours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card center">
+      <div class="eyebrow">A small reminder</div>
+      <h2>We are allowed to disagree.</h2>
+      <p>
+        We can be angry. We can be hurt. We can need space.
+        We can even think the other person is being an absolute idiot.
+      </p>
+      <p>
+        But a difficult moment doesn't get to rewrite every beautiful
+        moment that came before it.
+      </p>
+
+      <div class="promise">
+        <div class="big">You and me are on the same team.</div>
+        <p>Even when we're temporarily terrible at acting like it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="eyebrow">When we're both too stubborn</div>
+      <h2>Our tiny rules.</h2>
+      <div class="rules">
+        <div class="rule"><div class="dot">1</div><p><b>Don't fight to win.</b><br>Fight to understand what hurt the other person.</p></div>
+        <div class="rule"><div class="dot">2</div><p><b>Don't weaponise love.</b><br>Being upset shouldn't become a reason to make the other person feel unwanted.</p></div>
+        <div class="rule"><div class="dot">3</div><p><b>Take a breath.</b><br>Sometimes “I need a little time” is better than ten messages we don't really mean.</p></div>
+        <div class="rule"><div class="dot">4</div><p><b>Come back.</b><br>Space is okay. Disappearing from the relationship isn't the point.</p></div>
+        <div class="rule"><div class="dot">5</div><p><b>Remember the intention.</b><br>We chose each other because we wanted to build something, not because we'd never disagree.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card center">
+      <div class="eyebrow">For my favourite person</div>
+      <h2>One last thing.</h2>
+      <p class="lead">
+        I don't need us to be perfect.
+        I just want us to keep choosing to understand each other.
+      </p>
+      <button onclick="revealLetter()">Open the part I really want you to remember</button>
+
+      <div id="letter" class="reveal">
+        <img src="palak-01.jpg" class="photo" alt="A memory of you">
+        <div class="caption">A face I would rather see smiling than across an argument.</div>
+
+        <p>
+          Palak, if someday we come back to this page after a silly disagreement,
+          I hope we laugh at how dramatic we were.
+        </p>
+        <p>
+          And if it wasn't silly, I hope we still remember that being hurt
+          doesn't mean being against each other.
+        </p>
+        <p>
+          I will have things to learn. You will have things to learn.
+          We'll both mess up sometimes.
+          That's not the scary part.
+        </p>
+        <p>
+          The beautiful part is that we can learn, apologise, listen,
+          forgive, and try again.
+        </p>
+
+        <div class="promise">
+          <div class="big">I like you.<br>I adore you.<br>And I choose us.</div>
+          <p>Not only on the easy days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="emergency">
+    <button onclick="emergency()">🚨 Emergency Relationship Button</button>
+    <small id="emergencyText">For use when both of us have forgotten that we're actually very fond of each other.</small>
+  </section>
+
+  <footer>
+    <span>Palak &amp; Atharva</span><br>
+    Built before we knew what all our future arguments would be about.<br>
+    Built knowing we'd still want to find our way back to each other.
+    <br><br>♡
+  </footer>
+</div>
+
+<script>
+function revealLetter(){
+  const el=document.getElementById('letter');
+  el.classList.toggle('show');
+  if(el.classList.contains('show')) el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+const messages=[
+  "Drink some water. Put the angry paragraph away for five minutes. You like this person. ❤️",
+  "Bohot jyada muh nahi chalane lage ho tum aajkal 😂",
+  "You're allowed to be mad. You're also allowed to miss each other while you're mad.",
+  "Reminder: this is a disagreement, not a breakup scene from a badly written movie.",
+  "Take a breath. Then try kindness before cleverness.",
+  "Same team. Same two idiots. Temporary disagreement. ❤️",
+  "If you're reading this together: whoever is currently smirking has to make the first move.",
+  "Go back to the part where you remembered why you fell for each other."
+];
+function emergency(){
+  const el=document.getElementById('emergencyText');
+  el.textContent=messages[Math.floor(Math.random()*messages.length)];
+}
+</script>
+</body>
+</html>
